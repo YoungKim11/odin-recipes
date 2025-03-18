@@ -1,19 +1,68 @@
-
+* {
+    word-spacing: 1px;
+}
 img{
     width: auto;
-    height: 500px;
+    height: 550px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 div, h1{
     font-family: 'Quicksand', sans-serif;
 }
-.recipe-card {
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 (rgba(0, 0, 0, 0.2));
-    transition: 0.3s;
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: auto;
 }
-.recipe-card:hover{
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+
+.image-wrapper > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
 }
-.container {
+
+.image-wrapper > .content {
+    width: auto;
+    position: absolute;
+    overflow: auto;
+    inset: 0;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.4);
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.image-wrapper > img,
+ .image-wrapper > .content {
+
+    transition: 200ms ease-in-out;
+}
+.image-wrapper:hover > img.blur{
+    filter: blur(5px);
+}
+.image-wrapper:hover > img.zoom{
+    transform: scale(1.1);
+}
+.image-wrapper > .content.fade {
+    opacity: 0;
+}
+.image-wrapper:hover > .content.fade {
+    opacity: 1;
+}
+
+
+
+
+
+
+
